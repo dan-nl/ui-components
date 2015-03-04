@@ -1,10 +1,9 @@
 %h1 haml
-
 %p= t( 'global.hello' )
 %p= t( 'hello' )
 
+
 %h3 model injection
-items.each do |item|
-	%li= item.name
-	%li= item.url
-end
+- items.each do |item|
+	= item['name']
+	= item['url']
