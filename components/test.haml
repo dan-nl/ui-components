@@ -1,12 +1,39 @@
 %h1 haml
-%p= t( 'global.hello' )
+
+
+%h2 proof of concept
+.prose
+	%ul
+		%li inject i18n from site specific yaml file
+		%li inject i18n from global yaml file
+		%li injection model
+		%li include another haml file
+		%li include a pattern lab molecule
+
+
+%h3 i18n site specific
 %p= t( 'hello' )
 
-%h3 model injection
-- items.each do |item|
-	%li
-		- if item[:first]
-			%b= item[:name]
-		- else
-			%a{ :title => item[:name], :href => item[:url] }
-				= item[:name]
+
+%h3 i18n global
+%p= t( 'global.hello' )
+
+
+%h3 inject model
+.prose
+	%ul
+		- items.each do |item|
+			%li
+				- if item[:first]
+					%b= item[:name]
+				- else
+					%a{ :title => item[:name], :href => item[:url] }
+						= item[:name]
+
+
+%h3 haml include
+= render template: 'ui-components/components/test2'
+
+
+%h3 include a pattern lab molecule
+= render template: 'ui-components/components/search-listitem'
