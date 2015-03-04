@@ -2,8 +2,11 @@
 %p= t( 'global.hello' )
 %p= t( 'hello' )
 
-
 %h3 model injection
 - items.each do |item|
-	= item['name']
-	= item['url']
+	%li
+		- if item[:first]
+			%b= item[:name]
+		- else
+			%a{ :title => item[:name], :href => item[:url] }
+				= item[:name]
