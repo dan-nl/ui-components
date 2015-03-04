@@ -4,4 +4,7 @@
 %p= t( 'hello' )
 
 %h3 model injection
-%p some example that illustrates a model referenced data entry
+items.each do |item|
+	%li= item.name
+	%li= item.url
+end
